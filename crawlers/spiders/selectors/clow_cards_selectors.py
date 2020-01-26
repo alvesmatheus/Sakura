@@ -1,11 +1,9 @@
 CARD_PAGE = '//div[@class="lightbox-caption"]/a/@href'
 
-NAME = '//table[@class="infobox"]//td/text()'
+NAME = '//*[@id="PageHeader"]/div[1]/h1/text()'
 
-IMAGE_URL = '//div[@title="Clow Card"]//a/@href'
+IMAGE_URL = '//*[@id="pi-tab-0"]/figure/a/img/@src'
 
-SIGN = '//table[@class="infobox"]//tr[3]//a/text() | //table[@class="infobox"]//tr[3]/td[2]/text()'
+SIGN = '//*[@id="mw-content-text"]/aside/div[2]/div/a/text()'
 
-HIEGHERARCHY = '//table[@class="infobox"]//tr[4]//a/text() | //table[@class="infobox"]//tr[4]/td[2]/text()'
-
-MAGIC_TYPE = '//table[@class="infobox"]//tr[5]/td[2]/text()'
+MAGIC_TYPE = '//*[@id="mw-content-text"]/aside/div[3]/div/text()'
