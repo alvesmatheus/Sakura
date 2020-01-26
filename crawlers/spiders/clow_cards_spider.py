@@ -24,7 +24,6 @@ class ClowCardsSpider(scrapy.Spider):
         loader.add_value('card_type', response.meta.get('card_type'))
         loader.add_xpath('img_url', ccs.IMAGE_URL)
         loader.add_xpath('sign', ccs.SIGN)
-        loader.add_xpath('hierarchy', ccs.HIEGHERARCHY)
         loader.add_xpath('magic_type', ccs.MAGIC_TYPE)
 
         return loader.load_item()

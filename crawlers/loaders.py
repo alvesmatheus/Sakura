@@ -11,20 +11,10 @@ def fix_url_field(self, values):
 
 class ClowCardLoader(ItemLoader):
     default_output_processor = TakeFirst()
-
     card_out = fix_text_field
     sign_out = fix_text_field
-    hierarchy_out = fix_text_field
     magic_type_out = fix_text_field
-
     img_url_out = fix_url_field
 
-class SakuraCardLoader(ItemLoader):
-    default_output_processor = TakeFirst()
-
-    card_out = fix_text_field
-    sign_out = fix_text_field
-    hierarchy_out = fix_text_field
-    magic_type_out = fix_text_field
-
-    img_url_out = fix_url_field
+class SakuraCardLoader(ClowCardLoader):
+    pass

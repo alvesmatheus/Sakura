@@ -1,12 +1,13 @@
 import scrapy
 
-from crawlers.spiders.selectors import sakura_cards_selectors as ccs
+from crawlers.spiders.selectors import clow_cards_selectors as ccs
+from crawlers.spiders.selectors import sakura_cards_selectors as scs
+from crawlers.spiders.clow_cards_spider import ClowCardsSpider
 from crawlers.loaders import SakuraCardLoader
 from crawlers.items import SakuraCardItem
 
-class SakuraCardsSpider(scrapy.Spider):
+class SakuraCardsSpider(ClowCardsSpider):
     name = 'sakura-cards'
-    start_urls = ['https://ccsakura.fandom.com/wiki/Clow_Cards']
 
     def parse(self, response):
         metadata = {'card_type': 'Sakura Card'}
@@ -20,9 +21,8 @@ class SakuraCardsSpider(scrapy.Spider):
 
         loader.add_xpath('card', ccs.NAME)
         loader.add_value('card_type', response.meta.get('card_type'))
-        loader.add_xpath('img_url', ccs.IMAGE_URL)
+        loader.add_xpath('img_url', ccs.IMAGE_URL if (response.url in self.no_clow_version) else scs.IMAGE_URL)
         loader.add_xpath('sign', ccs.SIGN)
-        loader.add_xpath('hierarchy', ccs.HIEGHERARCHY)
         loader.add_xpath('magic_type', ccs.MAGIC_TYPE)
 
         return loader.load_item()
