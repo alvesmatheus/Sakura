@@ -26,15 +26,16 @@
 ## Crawlers
 
 <p align="justify">
-  At this time, we only have a spider to crawl the informations about the Clow Cards. Follow the steps bellow to use it.
+  At this time, we only have spiders to crawl the informations about Clow Cards and Sakura Cards. Follow the steps bellow to use them.
 </p>
 
 ```sh
 # Move into the directory
 cd Sakura
 
-# Run the spider named 'clow-cards' and save the data at 'clow-cards.json'
-scrapy crawl clow-cards -o clow-cards.json 
+# Run the spider named 'clow-cards' and save the data at 'clow-cards.json'.
+scrapy crawl clow-cards -o clow-cards.json
+scrapy crawl sakura-cards -o sakura-cards.json 
 ```
 
 ### Requirements
